@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio2_ColorMensaje", "Ejercicio2_ColorMensaje\Ejercicio2_ColorMensaje.csproj", "{C4206BDE-4041-467C-A48F-798A590F4107}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4206BDE-4041-467C-A48F-798A590F4107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4206BDE-4041-467C-A48F-798A590F4107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4206BDE-4041-467C-A48F-798A590F4107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4206BDE-4041-467C-A48F-798A590F4107}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51705BE4-5EE3-4CCF-9B48-E2EBBB81FE53}
+	EndGlobalSection
+EndGlobal
