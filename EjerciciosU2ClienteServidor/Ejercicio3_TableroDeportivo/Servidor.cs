@@ -117,7 +117,7 @@ namespace Ejercicio3_TableroDeportivo
                     else if (tiempo == "extra")
                         valores.Tiempo = "Extra";
                     else
-                        valores.Tiempo = "Penales";
+                        valores.Tiempo = "Penal";
                 }
                 else
                 {

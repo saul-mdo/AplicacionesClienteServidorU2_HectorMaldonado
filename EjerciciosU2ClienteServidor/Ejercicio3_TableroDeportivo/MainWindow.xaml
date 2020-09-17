@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio3_TableroDeportivo"
         mc:Ignorable="d"
-        Title="Tablero Deportivo" Icon="icono.ico" Height="420" Width="670">
+        Title="Tablero Deportivo Futbol" WindowStartupLocation="CenterScreen" Icon="icono.ico" Height="420" Width="670">
     <Window.Background>
         <ImageBrush ImageSource="fondo3.jpg"/>
     </Window.Background>
