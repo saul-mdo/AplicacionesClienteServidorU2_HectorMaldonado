@@ -1,0 +1,79 @@
+﻿<Window x:Class="Ejercicio3_TableroDeportivo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejercicio3_TableroDeportivo"
+        mc:Ignorable="d"
+        Title="Tablero Deportivo" Icon="icono.ico" Height="420" Width="670">
+    <Window.Background>
+        <ImageBrush ImageSource="fondo3.jpg"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+
+        <DockPanel  VerticalAlignment="Center" Opacity=".9" Background="DarkGray" Margin="50">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <Border>
+                        <TextBlock FontSize="35" >Local</TextBlock>
+                    </Border>
+                    <Border Height="150" CornerRadius="0">
+                        <TextBlock VerticalAlignment="Center" FontSize="55" Text="{Binding GolesEquipoLocal}"></TextBlock>
+                    </Border>
+                    <Border>
+                        <TextBlock FontSize="25" Text="{Binding EquipoLocal}"></TextBlock>
+                    </Border>
+                </StackPanel>
+
+
+                <StackPanel Grid.Column="1">
+                    <Border  Margin="0,80,0,0">
+                        <TextBlock FontSize="30">Tiempo</TextBlock>
+                    </Border>
+                    <Border>
+                        <TextBlock FontSize="40" Text="{Binding Tiempo}"></TextBlock>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <Border>
+                        <TextBlock FontSize="35" >Visitante</TextBlock>
+                    </Border>
+                    <Border Height="150" CornerRadius="0">
+                        <TextBlock VerticalAlignment="Center" FontSize="55" Text="{Binding GolesEquipoVisitante}"></TextBlock>
+                    </Border>
+                    <Border>
+                        <TextBlock FontSize="25" Text="{Binding EquipoVisitante}"></TextBlock>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+
+
+
+
+
+        </DockPanel>
+    </StackPanel>
+</Window>

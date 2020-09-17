@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ejercicio 3: Tablero Deportivo</title>
+</head>
+<body>
+    <h1>Tablero Deportivo</h1>
+    <form method="post" action="/ejercicio3">
+        <fieldset>
+            <label>Escriba el nombre del equipo local:</label> <input name="local" /> <br />
+            <label>Escriba el nombre del equipo visitante:</label> <input name="visitante" /> <br />
+
+            <label>Gol:</label> <input name="gol" type="submit" value="Gol Local" /> <input name="gol" type="submit" value="Gol visitante" /> <br />
+
+            <label>Tiempo de juego:</label>
+            <input name="tiempo" value="1er" type="radio" id="1er" />
+            <label for="1er">1er Tiempo</label>
+            <input name="tiempo" value="2do" type="radio" id="2do" />
+            <label for="2do">2do Tiempo</label>
+            <input name="tiempo" value="extra" type="radio" id="extra" />
+            <label for="extra">Tiempo Extra</label>
+            <input name="tiempo" value="penales" type="radio" id="penal" />
+            <label for="penal">Penales</label> <br />
+
+
+            <input type="submit" value="Aceptar Valores" /> <br />
+        </fieldset>
+    </form>
+</body>
+</html>
