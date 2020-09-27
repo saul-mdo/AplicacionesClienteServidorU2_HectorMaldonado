@@ -19,6 +19,26 @@ namespace Ejercicio4_ClienteVuelos
 
         public async void Agregar(DatosVuelo v)
         {
+            //if (string.IsNullOrEmpty(v.Hora))
+            //{
+            //    throw new Exception("Ingrese la hora del vuelo");
+            //}
+
+            //if (string.IsNullOrEmpty(v.Destino))
+            //{
+            //    throw new Exception("Ingrese el destino del vuelo");
+            //}
+
+            //if (string.IsNullOrEmpty(v.Vuelo))
+            //{
+            //    throw new Exception("Ingrese el codigo del vuelo");
+            //}
+
+            //if (string.IsNullOrEmpty(v.Estado))
+            //{
+            //    throw new Exception("Ingrese el estado del vuelo");
+            //}
+
             var json = JsonConvert.SerializeObject(v);
             var result = await cliente.PostAsync("Tablero", new StringContent(json, Encoding.UTF8, "application/json"));
             result.EnsureSuccessStatusCode();
@@ -41,20 +61,26 @@ namespace Ejercicio4_ClienteVuelos
             result.EnsureSuccessStatusCode();
         }
 
-        public async List<DatosVuelo> Get()
+        public IEnumerable<DatosVuelo> Vuelos { get; set; }
+
+        public delegate void cambio();
+        public event cambio AlHaberCambios;
+
+        public IEnumerable<DatosVuelo> Model { get; set; }
+        public async void Get()
         {
-            List<DatosVuelo> model = null;
+            //List<DatosVuelo> model = null;
             var client = new HttpClient();
 
 
-            var response = await client.GetAsync("http://vuelos.itesrc.net/");
+
+            var response = await client.GetAsync("http://vuelos.itesrc.net/Tablero");
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                model = JsonConvert.DeserializeObject<List<DatosVuelo>>(jsonString);
+                Model = JsonConvert.DeserializeObject<IEnumerable<DatosVuelo>>(jsonString);
+                AlHaberCambios?.Invoke();
             }
-
-            return model;
         }
 
     }

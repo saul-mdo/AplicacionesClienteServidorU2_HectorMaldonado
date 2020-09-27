@@ -100,5 +100,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icono.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="agregar.png" />
+    <Resource Include="editar.png" />
+    <Resource Include="eliminar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

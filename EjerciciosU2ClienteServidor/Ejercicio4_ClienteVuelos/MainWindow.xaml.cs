@@ -26,6 +26,13 @@ namespace Ejercicio4_ClienteVuelos
         {
             InitializeComponent();
             this.DataContext = datos;
+            cv.Get();
+            cv.AlHaberCambios += Cv_AlHaberCambios;
+        }
+
+        private void Cv_AlHaberCambios()
+        {
+            gridLista.ItemsSource = cv.Model;
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -33,6 +40,10 @@ namespace Ejercicio4_ClienteVuelos
             try
             {
                 cv.Agregar(datos);
+                txtDestino.Clear();
+                txtHota.Clear();
+                txtVuelo.Clear();
+                cv.Get();
             }
             catch(Exception ex)
             {
@@ -45,6 +56,7 @@ namespace Ejercicio4_ClienteVuelos
             try
             {
                 cv.Eliminar(datos);
+                cv.Get();
             }
             catch (Exception ex)
             {
@@ -57,6 +69,7 @@ namespace Ejercicio4_ClienteVuelos
             try
             {
                 cv.Editar(datos);
+                cv.Get();
             }
             catch (Exception ex)
             {

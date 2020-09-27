@@ -5,28 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio4_ClienteVuelos"
         mc:Ignorable="d"
-        Title="Vuelos" Height="350" Width="500">
+        Title="Vuelos" WindowStartupLocation="CenterScreen" MaxWidth="810"  MinWidth="790" MinHeight="390" Height="550" Width="800" Background="DimGray" Icon="icono.ico">
     <Window.Resources>
         <Style TargetType="Label">
-            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Margin" Value="0,12,0,12"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="consolas"/>
         </Style>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="15"/>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="0,13,0,13"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="consolas"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="red"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
-    <StackPanel>
-        <Label FontSize="30" HorizontalAlignment="Center">CONTROL DE VUELOS</Label>
-        <Label>Hora de Salida:</Label>
-        <TextBox Text="{Binding Hora}"></TextBox>
-        <Label>Destino:</Label>
-        <TextBox Text="{Binding Destino}"></TextBox>
-        <Label>Vuelo:</Label>
-        <TextBox Text="{Binding Vuelo}"></TextBox>
-        <Label>Estado:</Label>
-        <TextBox Text="{Binding Estado}"></TextBox>
 
-        <Button Name="btnAgregar" Click="btnAgregar_Click" Content="Agregar Vuelo"/>
+
+    <StackPanel>
+
+        <Grid Background="Gold" Margin="0,10,0,10">
+            <TextBlock FontFamily="consolas" HorizontalAlignment="Center" FontSize="30">ENTRADA Y SALIDA DE VUELOS</TextBlock>
+        </Grid>
+
+
+        <DataGrid FontSize="18" FontFamily="consolas" Height="200" Name="gridLista" Margin="5,0,5,0" ScrollViewer.CanContentScroll="True" 
+      ScrollViewer.VerticalScrollBarVisibility="Auto"
+      ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+
+        <Border  BorderBrush="Gold" BorderThickness="2"  Margin="8" CornerRadius="13">
+            <GroupBox BorderThickness="0" FontFamily="consolas" FontSize="20" Foreground="White">
+                <GroupBox.Header>AGREGAR VUELO</GroupBox.Header>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width=".70*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label>Hora de Salida:</Label>
+                    <TextBox Grid.Column="1" Name="txtHota" Text="{Binding Hora}"/>
+                    <Label HorizontalAlignment="Center" Grid.Column="2">Destino:</Label>
+                    <TextBox Name="txtDestino" Grid.Column="3" Text="{Binding Destino}"/>
+
+                    <Label Grid.Row="1">Vuelo:</Label>
+                    <TextBox Name="txtVuelo" Grid.Row="1" Grid.Column="1" Text="{Binding Vuelo}"/>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2">Estado:</Label>
+                    <ComboBox Name="cmbEdo" Margin="0,13,0,13" FontSize="13" Grid.Row="1" Grid.Column="3" Text="{Binding Estado}">
+                        <ComboBoxItem VerticalAlignment="Center">A Tiempo</ComboBoxItem>
+                        <ComboBoxItem VerticalAlignment="Center">Retrasado</ComboBoxItem>
+                        <ComboBoxItem VerticalAlignment="Center">Abordando</ComboBoxItem>
+                        <ComboBoxItem VerticalAlignment="Center">Cancelado</ComboBoxItem>
+                    </ComboBox>
+
+                    <Button Height="50" HorizontalAlignment="Center" Margin="5" FontSize="16" BorderThickness="0" Grid.Row="2" Grid.ColumnSpan="4" Name="btnAgregar" Click="btnAgregar_Click">
+                        <Image Source="agregar.png"/>
+                    </Button>
+                </Grid>
+            </GroupBox>
+
+        </Border>
+        
         <Button Name="btnEliminar" Click="btnEliminar_Click" Content="Eliminar Vuelo"/>
         <Button Name="btnEditar" Click="btnEditar_Click" Content="Editar Vuelo"/>
+        
     </StackPanel>
 </Window>
