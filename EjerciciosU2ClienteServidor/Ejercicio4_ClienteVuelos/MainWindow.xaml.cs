@@ -55,8 +55,14 @@ namespace Ejercicio4_ClienteVuelos
         {
             try
             {
-                cv.Eliminar(datos);
-                cv.Get();
+                if (gridLista.SelectedIndex >= 0)
+                {
+                    DatosVuelo dv = new DatosVuelo();
+                    dv = gridLista.SelectedItem as DatosVuelo;
+                    MessageBox.Show($"El vuelo {dv.Vuelo} con destino a {dv.Destino} cuya salida es a las {dv.Hora} será eliminado", "Vuelo Eliminado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    cv.Eliminar(dv);
+                    cv.Get();
+                }
             }
             catch (Exception ex)
             {
