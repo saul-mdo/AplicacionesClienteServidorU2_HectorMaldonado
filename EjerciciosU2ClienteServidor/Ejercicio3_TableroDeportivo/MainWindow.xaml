@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio3_TableroDeportivo"
         mc:Ignorable="d"
-        Title="Tablero Deportivo Futbol" WindowStartupLocation="CenterScreen" Icon="icono.ico" Height="420" Width="670">
+        Title="Tablero Deportivo Futbol" MaxWidth="680" MaxHeight="430" WindowStartupLocation="CenterScreen" Icon="icono.ico" MinHeight="420" Height="420" MinWidth="670" Width="670">
     <Window.Background>
         <ImageBrush ImageSource="fondo3.jpg"/>
     </Window.Background>
@@ -20,7 +20,7 @@
             <Setter Property="Margin" Value="8"/>
             <Setter Property="BorderThickness" Value="3"/>
             <Setter Property="CornerRadius" Value="5"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderBrush" Value="DimGray"/>
         </Style>
     </Window.Resources>
     <StackPanel>
@@ -68,12 +68,6 @@
                     </Border>
                 </StackPanel>
             </Grid>
-
-
-
-
-
-
         </DockPanel>
     </StackPanel>
 </Window>
