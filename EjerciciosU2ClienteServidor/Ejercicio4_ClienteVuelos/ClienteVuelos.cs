@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -19,26 +20,6 @@ namespace Ejercicio4_ClienteVuelos
 
         public async void Agregar(DatosVuelo v)
         {
-            //if (string.IsNullOrEmpty(v.Hora))
-            //{
-            //    throw new Exception("Ingrese la hora del vuelo");
-            //}
-
-            //if (string.IsNullOrEmpty(v.Destino))
-            //{
-            //    throw new Exception("Ingrese el destino del vuelo");
-            //}
-
-            //if (string.IsNullOrEmpty(v.Vuelo))
-            //{
-            //    throw new Exception("Ingrese el codigo del vuelo");
-            //}
-
-            //if (string.IsNullOrEmpty(v.Estado))
-            //{
-            //    throw new Exception("Ingrese el estado del vuelo");
-            //}
-
             var json = JsonConvert.SerializeObject(v);
             var result = await cliente.PostAsync("Tablero", new StringContent(json, Encoding.UTF8, "application/json"));
             result.EnsureSuccessStatusCode();
@@ -69,10 +50,7 @@ namespace Ejercicio4_ClienteVuelos
         public IEnumerable<DatosVuelo> Model { get; set; }
         public async void Get()
         {
-            //List<DatosVuelo> model = null;
             var client = new HttpClient();
-
-
 
             var response = await client.GetAsync("http://vuelos.itesrc.net/Tablero");
             if (response.IsSuccessStatusCode)

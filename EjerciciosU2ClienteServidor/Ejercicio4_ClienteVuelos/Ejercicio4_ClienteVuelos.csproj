@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EditarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +72,9 @@
     </Compile>
     <Compile Include="ClienteVuelos.cs" />
     <Compile Include="DatosVuelo.cs" />
+    <Compile Include="EditarWindow.xaml.cs">
+      <DependentUpon>EditarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -101,12 +108,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icono.ico" />
+    <Resource Include="Images\icono.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="agregar.png" />
-    <Resource Include="editar.png" />
-    <Resource Include="eliminar.png" />
+    <Resource Include="Images\agregar.png" />
+    <Resource Include="Images\editar.png" />
+    <Resource Include="Images\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\aceptar.png" />
+    <Resource Include="Images\cancelar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

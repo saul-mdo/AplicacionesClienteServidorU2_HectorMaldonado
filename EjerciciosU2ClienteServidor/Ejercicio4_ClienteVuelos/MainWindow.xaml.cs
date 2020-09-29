@@ -20,13 +20,14 @@ namespace Ejercicio4_ClienteVuelos
     /// </summary>
     public partial class MainWindow : Window
     {
-        DatosVuelo datos = new DatosVuelo();
         ClienteVuelos cv = new ClienteVuelos();
+        DatosVuelo datos = new DatosVuelo();
+
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = datos;
             cv.Get();
+            this.DataContext = datos;
             cv.AlHaberCambios += Cv_AlHaberCambios;
         }
 
@@ -40,10 +41,11 @@ namespace Ejercicio4_ClienteVuelos
             try
             {
                 cv.Agregar(datos);
+                MessageBox.Show("Vuelo agregado con exito");
                 txtDestino.Clear();
-                txtHota.Clear();
+                txtHora.Clear();
                 txtVuelo.Clear();
-                cv.Get();
+                cmbEdo.Text = "";
             }
             catch(Exception ex)
             {
@@ -57,11 +59,22 @@ namespace Ejercicio4_ClienteVuelos
             {
                 if (gridLista.SelectedIndex >= 0)
                 {
-                    DatosVuelo dv = new DatosVuelo();
-                    dv = gridLista.SelectedItem as DatosVuelo;
-                    MessageBox.Show($"El vuelo {dv.Vuelo} con destino a {dv.Destino} cuya salida es a las {dv.Hora} será eliminado", "Vuelo Eliminado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    cv.Eliminar(dv);
-                    cv.Get();
+                    datos = gridLista.SelectedItem as DatosVuelo;
+                    DatosVuelo v = gridLista.SelectedItem as DatosVuelo;
+
+                    if (MessageBox.Show($"¿Desea eliminar el vuelo {datos.Vuelo} con destino a {datos.Destino} cuya salida es a las {datos.Hora}?", "Confirme", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    {
+                        cv.Eliminar(datos);
+                        MessageBox.Show("Vuelo eliminado con exito", "Vuelo Eliminado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El vuelo no se eliminó");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un vuelo para eliminar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)
@@ -74,13 +87,25 @@ namespace Ejercicio4_ClienteVuelos
         {
             try
             {
-                cv.Editar(datos);
-                cv.Get();
+                if (gridLista.SelectedIndex >= 0)
+                {
+                    EditarWindow ventanaEditar = new EditarWindow();
+                    DatosVuelo ve = gridLista.SelectedItem as DatosVuelo;
+                    ventanaEditar.DataContext = ve;
+                    ventanaEditar.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un vuelo para poder editar");
+                }
+
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+       
     }
 }
