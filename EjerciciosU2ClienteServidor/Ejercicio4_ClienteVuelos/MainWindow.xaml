@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio4_ClienteVuelos"
         mc:Ignorable="d"
-        Title="Vuelos" WindowStartupLocation="CenterScreen" MaxWidth="810"  MinWidth="790" MinHeight="520" MaxHeight="530" Height="520" Width="810" Background="DimGray" Icon="/Images/icono.ico">
+        Title="Vuelos" WindowStartupLocation="CenterScreen" MaxWidth="810"  MinWidth="790" MinHeight="510" MaxHeight="530" Height="520" Width="810" Background="DimGray" Icon="/Images/icono.ico">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="17"/>
