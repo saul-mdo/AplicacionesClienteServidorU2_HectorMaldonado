@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio5_ClientePeliculas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Control de Cartelera" Icon="/Images/icono.ico" Height="560" Width="870" Background="#FF0C1B57">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="230"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="50"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+
+        <Grid DockPanel.Dock="Top">
+            <Image Source="/Images/logo2.png" Height="100" HorizontalAlignment="Left"></Image>
+            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="35" VerticalAlignment="Center" FontWeight="Bold">
+                Control de Cartelera
+            </TextBlock>
+        </Grid>
+
+        <GroupBox Margin="5" BorderBrush="White" FontSize="18" DockPanel.Dock="Left" BorderThickness="1" Foreground="White">
+            <GroupBox.Header>Agregar Nueva Función</GroupBox.Header>
+             <StackPanel Margin="10" >
+            <Label>Hora:</Label>
+            <TextBox Name="txtHora" Text="{Binding Hora}"></TextBox>
+            <Label>Titulo:</Label>
+            <TextBox Name="txtTitulo" Text="{Binding Nombre}"></TextBox>
+            <Label>Idioma:</Label>
+            <ComboBox SelectedValue="{Binding Idioma}" Name="cmbIdioma"></ComboBox>
+            <Label>Sala:</Label>
+            <ComboBox SelectedValue="{Binding Sala}" Name="cmbSala"></ComboBox>
+            <Label>Clasificación:</Label>
+            <ComboBox SelectedValue="{Binding Clasificacion}" Name="cmbClasificacion"></ComboBox>
+                <Button Name="btnAgregar" Click="btnAgregar_Click" Margin="5">
+                    <Image Source="/Images/add.png"></Image>
+                </Button>
+            </StackPanel>
+
+        </GroupBox>
+
+        <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Button Name="btnEliminar" Click="btnEliminar_Click" Margin="5">
+                <Image Source="/Images/delete.png"></Image>
+            </Button>
+            <Button Name="btnEditar" Click="btnEditar_Click" Margin="5">
+                <Image Source="/Images/edit.png"></Image>
+            </Button>
+        </WrapPanel>
         
-    </Grid>
+        
+        <DataGrid DockPanel.Dock="Right" Margin="10,20,10,0" Name="dtgPeliculas" FontSize="16"
+                  AlternatingRowBackground="DeepSkyBlue" 
+                      CanUserResizeColumns="False"
+                  AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Sala" Binding="{Binding Sala}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Pelicula" Binding="{Binding Nombre}" Width="2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Clasificación" Binding="{Binding Clasificacion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Idioma" Binding="{Binding Idioma}" Width="1.5*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 </Window>
