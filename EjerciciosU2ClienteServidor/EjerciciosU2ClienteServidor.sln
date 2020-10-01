@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio3_TableroDeportivo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio4_ClienteVuelos", "Ejercicio4_ClienteVuelos\Ejercicio4_ClienteVuelos.csproj", "{2A8AA52D-4906-4FBA-ACA6-453DF2B0D0AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio5_ClientePeliculas", "Ejercicio5_ClientePeliculas\Ejercicio5_ClientePeliculas.csproj", "{B618C381-7E14-4F41-A401-498250FB7FAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2A8AA52D-4906-4FBA-ACA6-453DF2B0D0AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A8AA52D-4906-4FBA-ACA6-453DF2B0D0AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A8AA52D-4906-4FBA-ACA6-453DF2B0D0AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B618C381-7E14-4F41-A401-498250FB7FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B618C381-7E14-4F41-A401-498250FB7FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B618C381-7E14-4F41-A401-498250FB7FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B618C381-7E14-4F41-A401-498250FB7FAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
